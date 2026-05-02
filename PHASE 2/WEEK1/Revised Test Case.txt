@@ -1,0 +1,60 @@
+1. Overall Quality: Needs Improvement
+
+2. Issues Identified:
+- Test Case 1: 
+  * Preconditions do not specify the type of UPI ID (e.g., personal or merchant) 
+  * Test Steps lack detail on handling optional remarks field
+  * Expected Result does not specify the exact confirmation message or transaction ID format
+- Test Case 2: 
+  * Preconditions do not specify the exact balance amount for a more precise test
+  * Test Steps do not cover error handling for invalid UPI PIN
+  * Expected Result does not specify the error message's exact wording or the transaction's status
+
+3. Improvements Suggested:
+Test Case 1: Successful UPI Transfer via VPA
+
+Test Case ID: UPI_TC_001
+Scenario: Verify successful fund transfer using valid personal UPI ID
+
+Preconditions:
+- User is logged into UPI-enabled app with a personal UPI ID
+- Bank account is linked, active, and has a sufficient balance (e.g., ₹1000)
+- User has a valid UPI PIN
+
+Test Steps:
+1. Navigate to UPI transfer section
+2. Enter a valid personal UPI ID (e.g., example@upi)
+3. Enter amount (e.g., ₹100)
+4. Optionally, add remarks (e.g., “Test transfer”)
+5. Click on “Pay”
+6. Enter valid UPI PIN
+
+Expected Result:
+- Transaction is successful with a confirmation message: “Transaction successful. Transaction ID: XXXXXXX”
+- Transaction ID is generated and displayed
+- Balance is deducted correctly (e.g., ₹900 remaining)
+- Receiver gets credited instantly
+- Transaction is recorded in transaction history
+
+Test Case 2: Failed UPI Transfer due to Insufficient Balance
+
+Test Case ID: UPI_TC_002
+Scenario: Verify transfer failure when balance is insufficient
+
+Preconditions:
+- User is logged into UPI-enabled app
+- Bank account is linked but has an insufficient balance (e.g., ₹50) for the transfer amount (e.g., ₹100)
+
+Test Steps:
+1. Navigate to UPI transfer section
+2. Enter a valid UPI ID
+3. Enter amount greater than available balance (e.g., ₹100)
+4. Click on “Pay”
+5. Enter valid UPI PIN
+
+Expected Result:
+- Transaction fails with an error message: “Insufficient balance. Please check your account balance and try again.”
+- No amount is deducted
+- Transaction is not processed and an error code is displayed (if applicable)
+
+4. Final Recommendation: Revise

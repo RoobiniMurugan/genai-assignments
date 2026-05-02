@@ -1,0 +1,52 @@
+Test Case 1: Successful UPI Transfer via VPA
+
+Test Case ID: UPI_TC_001
+Scenario: Verify successful fund transfer using valid UPI ID
+
+Preconditions:
+
+User is logged into UPI-enabled app
+Bank account is linked and active
+Sufficient balance available
+
+Test Steps:
+
+Navigate to UPI transfer section
+Enter valid UPI ID (e.g., example@upi)
+Enter amount (e.g., ₹100)
+Add remarks (optional)
+Click on “Pay”
+Enter valid UPI PIN
+
+Expected Result:
+
+Transaction is successful
+Confirmation message is displayed
+Transaction ID is generated
+Balance is deducted correctly
+Receiver gets credited instantly
+Test Case 2: Failed UPI Transfer due to Insufficient Balance
+
+Test Case ID: UPI_TC_002
+Scenario: Verify transfer failure when balance is insufficient
+
+Preconditions:
+
+User is logged into UPI-enabled app
+Bank account is linked
+Available balance is less than transfer amount
+
+Test Steps:
+
+Navigate to UPI transfer section
+Enter valid UPI ID
+Enter amount greater than available balance
+Click on “Pay”
+Enter valid UPI PIN
+
+Expected Result:
+
+Transaction fails
+Error message displayed: “Insufficient balance”
+No amount is deducted
+Transaction is not processed
